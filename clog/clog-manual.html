@@ -897,10 +897,11 @@ is nil unbind the event.</p></li>
 <p><a id='x-28CLOG-3ASET-ON-MOUSE-DOWN-20GENERIC-FUNCTION-29'></a></p>
 
 <ul>
-<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ASET-ON-MOUSE-DOWN-20GENERIC-FUNCTION-29" >SET-ON-MOUSE-DOWN</a></span></span> <span class="locative-args">CLOG-OBJ ON-MOUSE-DOWN-HANDLER &amp;KEY ONE-TIME</span></span></p>
+<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ASET-ON-MOUSE-DOWN-20GENERIC-FUNCTION-29" >SET-ON-MOUSE-DOWN</a></span></span> <span class="locative-args">CLOG-OBJ ON-MOUSE-DOWN-HANDLER &amp;KEY ONE-TIME CANCEL-EVENT</span></span></p>
 
 <p>Set the <code>ON-MOUSE-DOWN-HANDLER</code> for <code>CLOG-OBJ</code>. If
-<code>ON-MOUSE-DOWN-HANDLER</code> is nil unbind the event.</p></li>
+<code>ON-MOUSE-DOWN-HANDLER</code> is nil unbind the event. If cancel-event is true event
+does not bubble.</p></li>
 </ul>
 
 <p><a id='x-28CLOG-3ASET-ON-MOUSE-UP-20GENERIC-FUNCTION-29'></a></p>
@@ -960,10 +961,11 @@ is nil unbind the event.</p></li>
 <p><a id='x-28CLOG-3ASET-ON-POINTER-DOWN-20GENERIC-FUNCTION-29'></a></p>
 
 <ul>
-<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ASET-ON-POINTER-DOWN-20GENERIC-FUNCTION-29" >SET-ON-POINTER-DOWN</a></span></span> <span class="locative-args">CLOG-OBJ ON-POINTER-DOWN-HANDLER &amp;KEY CAPTURE-POINTER ONE-TIME</span></span></p>
+<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ASET-ON-POINTER-DOWN-20GENERIC-FUNCTION-29" >SET-ON-POINTER-DOWN</a></span></span> <span class="locative-args">CLOG-OBJ ON-POINTER-DOWN-HANDLER &amp;KEY CAPTURE-POINTER ONE-TIME CANCEL-EVENT</span></span></p>
 
 <p>Set the <code>ON-POINTER-DOWN-HANDLER</code> for <code>CLOG-OBJ</code>. If
-<code>ON-POINTER-DOWN-HANDLER</code> is nil unbind the event.</p></li>
+<code>ON-POINTER-DOWN-HANDLER</code> is nil unbind the event. If cancel event is t the
+even does not bubble.</p></li>
 </ul>
 
 <p><a id='x-28CLOG-3ASET-ON-POINTER-UP-20GENERIC-FUNCTION-29'></a></p>
@@ -1923,10 +1925,10 @@ Note: z-index only works on Elements with Position Type of absolute,
 resizeable sets if element can be resized by user.</p></li>
 </ul>
 
-<p><a id='x-28CLOG-3APOSITION-TYPE-20-28TYPE-29-29'></a></p>
+<p><a id='x-28CLOG-3APOSITIONING-TYPE-20-28TYPE-29-29'></a></p>
 
 <ul>
-<li><span class=reference-bullet><span class=reference><span class="locative-type">[type]</span> <span class="reference-object"><a href="#x-28CLOG-3APOSITION-TYPE-20-28TYPE-29-29" >POSITION-TYPE</a></span></span></span></li>
+<li><span class=reference-bullet><span class=reference><span class="locative-type">[type]</span> <span class="reference-object"><a href="#x-28CLOG-3APOSITIONING-TYPE-20-28TYPE-29-29" >POSITIONING-TYPE</a></span></span></span></li>
 </ul>
 
 <p><a id='x-28CLOG-3APOSITIONING-20GENERIC-FUNCTION-29'></a></p>
@@ -3234,14 +3236,14 @@ and if <code>:AUTO-PLACE</code> (default t) place-inside-bottom-of <code>CLOG-OB
 <p><a id='x-28CLOG-3ACREATE-PANEL-20GENERIC-FUNCTION-29'></a></p>
 
 <ul>
-<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ACREATE-PANEL-20GENERIC-FUNCTION-29" >CREATE-PANEL</a></span></span> <span class="locative-args">CLOG-OBJ &amp;KEY LEFT TOP RIGHT BOTTOM WIDTH HEIGHT UNITS MARGIN-LEFT MARGIN-TOP MARGIN-RIGHT MARGIN-BOTTOM BORDER-STYLE BORDER-WIDTH BORDER-COLOR BACKGROUND-COLOR POSITIONING OVERFLOW RESIZABLE CONTENT STYLE HIDDEN CLASS HTML-ID AUTO-PLACE DISPLAY</span></span></p>
+<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ACREATE-PANEL-20GENERIC-FUNCTION-29" >CREATE-PANEL</a></span></span> <span class="locative-args">CLOG-OBJ &amp;KEY LEFT TOP RIGHT BOTTOM WIDTH HEIGHT UNITS MARGIN-LEFT MARGIN-TOP MARGIN-RIGHT MARGIN-BOTTOM BORDER-STYLE BORDER-WIDTH BORDER-COLOR BACKGROUND-COLOR POSITIONING OVERFLOW RESIZABLE CONTENT STYLE HIDDEN CLASS HTML-ID AUTO-PLACE</span></span></p>
 
 <p>Create a new CLOG-Panel as child of
 <code>CLOG-OBJ</code>. Optionally you can set the :X, :Y, <code>:WIDTH</code> and <code>:HEIGHT</code> (in
 <code>:UNITS</code> defulting to :px, if set to nil unit type must be provided for
 x,y,width and height), <code>BORDER-STYLE</code> (see <a href="#x-28CLOG-3ABORDER-STYLE-TYPE-20-28TYPE-29-29" title="(CLOG:BORDER-STYLE-TYPE (TYPE))"><code>BORDER-STYLE-TYPE</code></a>),
 <code>BORDER-WIDTH</code>, <code>BORDER-COLOR</code>, <code>:POSITIONING</code> (default is <code>:FIXED</code>) (see
-<code>POSITIONING-TYPE</code>), <code>:OVERFLOW</code> (default is <code>:CLIP</code>) with <code>:CONTENT</code> (default
+<a href="#x-28CLOG-3APOSITIONING-TYPE-20-28TYPE-29-29" title="(CLOG:POSITIONING-TYPE (TYPE))"><code>POSITIONING-TYPE</code></a>), <code>:OVERFLOW</code> (default is <code>:CLIP</code>) with <code>:CONTENT</code> (default
 &quot;&quot;) and <code>:RESIZABLE</code> defaults to <code>:NONE</code>. Additional css styles can be
 set in <code>:STYLE</code> (default &quot;&quot;) if <code>:AUTO-PLACE</code> (default t)
 place-inside-bottom-of <code>CLOG-OBJ</code>. If hidden is true visiblep is set to
@@ -3305,7 +3307,7 @@ if <code>:HTML-ID</code> &quot;myid&quot; then the <code>HTML-ID</code> for cent
 <p><a id='x-28CLOG-3ARIGHT-PANEL-20GENERIC-FUNCTION-29'></a></p>
 
 <ul>
-<li><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ARIGHT-PANEL-20GENERIC-FUNCTION-29" >RIGHT-PANEL</a></span></span> <span class="locative-args">OBJECT</span></span></li>
+<li><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ARIGHT-PANEL-20GENERIC-FUNCTION-29" >RIGHT-PANEL</a></span></span> <span class="locative-args">SELF</span></span></li>
 </ul>
 
 <p><a id='x-28CLOG-3ABOTTOM-PANEL-20GENERIC-FUNCTION-29'></a></p>
@@ -3836,7 +3838,7 @@ virtual keyboards.</p></li>
 <p><a id='x-28CLOG-3ACREATE-OPTGROUP-20GENERIC-FUNCTION-29'></a></p>
 
 <ul>
-<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ACREATE-OPTGROUP-20GENERIC-FUNCTION-29" >CREATE-OPTGROUP</a></span></span> <span class="locative-args">CLOG-OBJ &amp;KEY CONTENT DISABLED HTML-ID CLASS</span></span></p>
+<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ACREATE-OPTGROUP-20GENERIC-FUNCTION-29" >CREATE-OPTGROUP</a></span></span> <span class="locative-args">CLOG-OBJ &amp;KEY CONTENT DISABLED HTML-ID</span></span></p>
 
 <p>Create a new clog-optgroup as child of <code>CLOG-OBJ</code>.</p></li>
 </ul>
@@ -6191,7 +6193,7 @@ on-storage event is fired for changes to :local storage keys.</p></li>
 <p><a id='x-28CLOG-3ABODY-ELEMENT-20GENERIC-FUNCTION-29'></a></p>
 
 <ul>
-<li><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ABODY-ELEMENT-20GENERIC-FUNCTION-29" >BODY-ELEMENT</a></span></span> <span class="locative-args">OBJECT</span></span></li>
+<li><span class=reference-bullet><span class=reference><span class="locative-type">[generic-function]</span> <span class="reference-object"><a href="#x-28CLOG-3ABODY-ELEMENT-20GENERIC-FUNCTION-29" >BODY-ELEMENT</a></span></span> <span class="locative-args">SELF</span></span></li>
 </ul>
 
 <p><a id='x-28CLOG-3ADOCUMENT-ELEMENT-20GENERIC-FUNCTION-29'></a></p>
@@ -6513,19 +6515,25 @@ clog-user:<em>body</em> to last window openned to /repl.</p></li>
 <p><a id='x-28CLOG-3ALOAD-WORLD-20FUNCTION-29'></a></p>
 
 <ul>
-<li><span class=reference-bullet><span class=reference><span class="locative-type">[function]</span> <span class="reference-object"><a href="#x-28CLOG-3ALOAD-WORLD-20FUNCTION-29" >LOAD-WORLD</a></span></span> <span class="locative-args"></span></span></li>
+<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[function]</span> <span class="reference-object"><a href="#x-28CLOG-3ALOAD-WORLD-20FUNCTION-29" >LOAD-WORLD</a></span></span> <span class="locative-args"></span></span></p>
+
+<p>Load source files for creating documentation</p></li>
 </ul>
 
 <p><a id='x-28CLOG-3AMAKE-MARK-DOWN-20FUNCTION-29'></a></p>
 
 <ul>
-<li><span class=reference-bullet><span class=reference><span class="locative-type">[function]</span> <span class="reference-object"><a href="#x-28CLOG-3AMAKE-MARK-DOWN-20FUNCTION-29" >MAKE-MARK-DOWN</a></span></span> <span class="locative-args"></span></span></li>
+<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[function]</span> <span class="reference-object"><a href="#x-28CLOG-3AMAKE-MARK-DOWN-20FUNCTION-29" >MAKE-MARK-DOWN</a></span></span> <span class="locative-args"></span></span></p>
+
+<p>Create manual in Mark Down format</p></li>
 </ul>
 
 <p><a id='x-28CLOG-3AMAKE-HTML-20FUNCTION-29'></a></p>
 
 <ul>
-<li><span class=reference-bullet><span class=reference><span class="locative-type">[function]</span> <span class="reference-object"><a href="#x-28CLOG-3AMAKE-HTML-20FUNCTION-29" >MAKE-HTML</a></span></span> <span class="locative-args"></span></span></li>
+<li><p><span class=reference-bullet><span class=reference><span class="locative-type">[function]</span> <span class="reference-object"><a href="#x-28CLOG-3AMAKE-HTML-20FUNCTION-29" >MAKE-HTML</a></span></span> <span class="locative-args"></span></span></p>
+
+<p>Create manual in <code>HTML</code></p></li>
 </ul>
 
 <p><a id='x-28CLOG-3AMAKE-WORLD-20FUNCTION-29'></a></p>
